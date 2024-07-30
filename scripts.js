@@ -1,20 +1,41 @@
-function uploadFile() {
-    const fileInput = document.getElementById('apkFile');
-    const file = fileInput.files[0];
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
 
-    if (file) {
-        const reader = new FileReader();
+.container {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
 
-        reader.onload = function (e) {
-            const downloadLink = document.getElementById('downloadLink');
-            const downloadUrl = document.getElementById('downloadUrl');
-            downloadUrl.href = e.target.result;
-            downloadUrl.download = file.name;
-            downloadLink.classList.remove('hidden');
-        };
+.hidden {
+    display: none;
+}
 
-        reader.readAsDataURL(file);
-    } else {
-        alert('Please choose a file to upload.');
-    }
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #4CAF50;
+    display: block;
+    margin-top: 10px;
 }
